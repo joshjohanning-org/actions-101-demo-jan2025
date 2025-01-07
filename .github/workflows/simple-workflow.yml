@@ -64,7 +64,7 @@ jobs:
     needs: [ build ]
     steps:
       - uses: actions/checkout@v4
-      - run: echo "hello!"
+      - run: exit 1
         shell: bash
 
   security-scan:
