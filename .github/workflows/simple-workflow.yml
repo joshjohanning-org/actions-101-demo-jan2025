@@ -70,7 +70,7 @@ jobs:
   security-scan:
     runs-on: windows-latest
     name: running sast
-    needs: [ build, test ]
+    needs: [ test ]
     steps:
       - uses: actions/checkout@v4
       - run: echo "hello!"
