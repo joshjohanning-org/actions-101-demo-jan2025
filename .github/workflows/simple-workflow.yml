@@ -58,3 +58,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+  test:
+    runs-on: windows-latest
+    name: running tests
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "hello!"
+        shell: bash
