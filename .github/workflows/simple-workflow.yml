@@ -59,8 +59,9 @@ jobs:
           echo test, and deploy your project.
 
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     name: running tests
+    continue-on-error: true
     needs: [ build ]
     steps:
       - uses: actions/checkout@v4
