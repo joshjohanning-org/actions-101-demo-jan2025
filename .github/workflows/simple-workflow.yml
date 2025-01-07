@@ -51,7 +51,7 @@ jobs:
           path: world.txt
           
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: running tests
     needs: [ build ]
     steps:
@@ -63,11 +63,25 @@ jobs:
         run: ls -R
 
   security-scan:
-    runs-on: windows-latest
+    runs-on: ubuntu-22.04
     if: always()
     name: running sast
-    needs: [ test ]
+    needs: [ build ]
     steps:
       - uses: actions/checkout@v4
       - run: echo "hello!"
         shell: bash
+
+  deploy-dev:
+    runs-on: ubuntu-22.04
+    needs: [ build, test, security-scan ]
+    environment: dev
+    steps:
+      - run: echo "deploy!"
+      - run: echo "deploy!"
+      - run: echo "deploy!"
+      - run: echo "deploy!"
+      - run: sleep 30s
+      - run: echo "deploy!"
+      - run: echo "deploy!"
+      - run: echo "deploy!"
