@@ -50,6 +50,13 @@ jobs:
           name: my-artifact
           path: world.txt
           
+      - name: Checkout another repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'joshjohanning-org/test-for-cloning-private-repo-jan2025' # Replace with the owner and repository name
+          path: 'new-directory' # Optional: specify the directory to checkout to
+
+      - run: ls -R
   test:
     runs-on: ubuntu-22.04
     name: running tests
